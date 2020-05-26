@@ -1,0 +1,4 @@
+br\com\zup\pgg\lojamarvel\ProgramaPrincipal.class
+br\com\zup\pgg\lojamarvel\entity\Cliente.class
+br\com\zup\pgg\lojamarvel\service\ClienteService.class
+br\com\zup\pgg\lojamarvel\controller\ControllerCliente.class
