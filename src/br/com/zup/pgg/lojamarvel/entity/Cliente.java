@@ -5,7 +5,7 @@ public class Cliente {
 	private int idade;
 	private String cpf;
 	private String email;
-	private int telefone;
+	private String telefone;
 	private String endereco;
 
 	public String getNome() {
@@ -24,21 +24,12 @@ public class Cliente {
 		this.idade = idade;
 	}
 
-
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public int getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(int telefone) {
-		this.telefone = telefone;
 	}
 
 	public String getEndereco() {
@@ -55,6 +46,14 @@ public class Cliente {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
 }

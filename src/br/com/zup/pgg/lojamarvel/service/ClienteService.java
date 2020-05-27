@@ -5,42 +5,42 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import br.com.zup.pgg.lojamarvel.dao.ClienteDao;
 import br.com.zup.pgg.lojamarvel.entity.Cliente;
 
 public class ClienteService {
-	private static Map<String, Cliente> listaClientes = new HashMap<String, Cliente>();
+	ClienteDao clienteDao = new ClienteDao();
 
 	public Cliente adicionaCliente(Cliente cliente) {
+		clienteDao.insereCliente(cliente);
 
-		return listaClientes.put(cliente.getCpf(), cliente);
+		return cliente;
 	}
 
 	public List<Cliente> buscaCliente(String cpf) {
 
 		if (cpf != null) {
 			List<Cliente> listaCliente = new ArrayList();
-			listaCliente.add(listaClientes.get(cpf));
+			listaCliente.add(clienteDao.listaClientesPorCpf(cpf));
 			return listaCliente;
 		} else {
 
-			List<Cliente> listaCliente = new ArrayList(listaClientes.values());
-			return listaCliente;
+			return clienteDao.listaClientes();
 		}
 
 	}
 
 	public Cliente alteraCadastro(String cpf, Cliente cliente) {
 
-		Cliente clienteAlterado = listaClientes.get(cpf);
-		listaClientes.put(cpf, cliente);
+		clienteDao.alteraCliente(cliente, cpf);
 
-		return clienteAlterado;
+		return cliente;
 
 	}
 
-	public  void excluirCadastro(String cpf) {
+	public void excluirCadastro(String cpf) {
 
-		listaClientes.remove(cpf);
+		clienteDao.deletaCliente(cpf);
 	}
 
 }
