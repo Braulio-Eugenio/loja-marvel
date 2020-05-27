@@ -1,13 +1,14 @@
 package br.com.zup.pgg.lojamarvel.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import br.com.zup.pgg.lojamarvel.entity.Cliente;
 
 public class ClienteService {
-	private static Map<String, Cliente> listaClientes;
+	private static Map<String, Cliente> listaClientes = new HashMap<String, Cliente>();
 
 	public Cliente adicionaCliente(Cliente cliente) {
 
@@ -15,40 +16,31 @@ public class ClienteService {
 	}
 
 	public List<Cliente> buscaCliente(String cpf) {
-		List<Cliente> listaCliente = new ArrayList(listaClientes.values());
 
 		if (cpf != null) {
-			
-		
-		}
-		
-		return  listaCliente;
+			List<Cliente> listaCliente = new ArrayList();
+			listaCliente.add(listaClientes.get(cpf));
+			return listaCliente;
+		} else {
 
-	}
-
-	public static void buscaListaDeClientes() {
-		for (Cliente cliente : listaClientes.values()) {
-			clienteBuscado(cliente);
-
+			List<Cliente> listaCliente = new ArrayList(listaClientes.values());
+			return listaCliente;
 		}
 
 	}
 
-	public static void alteraCadastro(String cpf, Cliente cliente) {
+	public Cliente alteraCadastro(String cpf, Cliente cliente) {
 
 		Cliente clienteAlterado = listaClientes.get(cpf);
-
 		listaClientes.put(cpf, cliente);
-		clienteBuscado(cliente);
+
+		return clienteAlterado;
+
 	}
 
-	public static void excluirCadastro(String cpf) {
+	public  void excluirCadastro(String cpf) {
 
 		listaClientes.remove(cpf);
-	}
-
-	public static void clienteBuscado(Cliente clienteBuscado) {
-
 	}
 
 }

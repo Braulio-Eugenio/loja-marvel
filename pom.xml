@@ -29,8 +29,8 @@
 					<update>true</update>
 					<!-- Because deploy this maven project using plugin in pom so use the 
 						manager-script role user. -->
-					<username>tomcat</username>
-					<password>tomcat</password>
+					<username>admin</username>
+					<password>admin</password>
 				</configuration>
 			</plugin>
 			<plugin>
